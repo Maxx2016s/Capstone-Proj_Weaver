@@ -1,4 +1,45 @@
-.h1{
-    background-color: rgba(72, 152, 101, 0.653);
-    color: greenyellow;
+body{
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+    background-color: #0D0C11;
+}
+.navbar{
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    z-index: 1000;
+    height: 60px;
+    width: 100%;
+    background-color: #1c1829;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    border-bottom: 2px solid #24222C;
+    padding: 2px 20px;
+}
+
+.nav-left{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.logo{
+    height: 116px;
+    width: auto;
+    cursor: pointer;
+}
+.nav-center{
+    display: flex;
+    justify-content: center;
+}
+.searchbox{
+    width: 50%;
+    max-width: 480px;
+    min-width: 180px;
+    padding: 10px 14px;
+    border: 1px solid #24222C;
+    border-radius: 8px;
+    box-sizing: border-box;
 }
