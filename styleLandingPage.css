@@ -1,6 +1,6 @@
 *{
     font-family:Helvetica, sans-serif;
-    color: E8E6EE;
+    color: #E8E6EE;
 }
 body{
     padding: 0px;
@@ -8,7 +8,7 @@ body{
     box-sizing: border-box;
     background-color: #0D0C11;
 }
-header{
+.navbar{
     position: sticky;
     top: 0;
     z-index: 100;
@@ -22,7 +22,7 @@ header{
     padding: 0px 15px;
 }
 
-.nav-left{
+.navbar-left{
     display: flex;
     align-items: center;
     gap: 10px;
@@ -32,12 +32,12 @@ header{
     height: 116px;
     width: auto;
 }
-.searchbox{
+.search-box{
     flex: 1;
     max-width: 500px;
     margin: 0 30px;
 }
-.searchbox input{
+.search-box input{
     width: 100%;
     padding: 10px 14px;
     background-color: #16141D;
@@ -45,40 +45,54 @@ header{
     border-radius: 18px;
     color: white;
 }
-.nav-right img{
+.navbar-right img{
   width: 28px;
   cursor: pointer;
 }
 search-box input::placeholder {
     color: #A29EB2;
-.page {
-      display: grid;
-      grid-template-columns: 220px 1fr 260px;
-      gap: 20px;
-      padding: 20px;
+}
+.container{
+      display: flex;
+      margin-top: 10px;
+      gap: 15px;
+      padding: 0px 20px;
     }
-.left-sidebar div {
-    padding: 10px;
-    margin-bottom: 8px;
-    background-color: #1a1a1a;
-    border-radius: 6px;
-    transition: background 0.2s, transform 0.2s;
-    cursor: pointer;
+.left{
+    width: 20%;
+    background: #16141D;
+    padding: 15px;
+    border-radius: 10px;
+    border: 1px solid #24222C;
+    height: fit-content;
+    transition: 0.3s;
+    color: #A29EB2;
 }
 
-.left-sidebar div:hover {
-    background-color: #2f2f2f;
-    transform: translateX(4px);
+.left:hover {
+    background: #14121A;
 }
+.left a {
+    display: block;
+    margin: 8px 0;
+    text-decoration: none;
+    color: #C19BFF;
+}
+.left a:hover {
+    color: #E3C6FF;
+  cursor: pointer;}
 
+.middle{
+  flex: 1;
+}
 /* MIDDLE POSTS */
 .post {
     background-color: #16141D;
     padding: 15px;
-    border-radius: 8px;
+    border-radius: 12px;
     margin-bottom: 20px;
     border: 1px solid #24222C;
-    transition: 0.2s, background 0.2s;
+    transition: 0.2s;
 }
 .post:hover {
   transform: scale(1.01);
@@ -131,3 +145,4 @@ border: 1px solid #333;
         max-width: 250px;
       }
     }
+  }
