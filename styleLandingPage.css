@@ -374,3 +374,170 @@ body {
   }
 }
 
+/* ===== DMS PAGe ===== */
+
+.dm {
+  max-width: 1000px;
+  margin: 20px auto;
+  padding: 0 16px;
+  display: flex;
+  gap: 16px;
+}
+
+/* left side list */
+
+.dm-left {
+  width: 30%;
+  background: #16141D;
+  border: 1px solid #24222C;
+  border-radius: 10px;
+  padding: 12px;
+}
+
+.dm-title {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.dm-chat {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.dm-chat:hover {
+  background: #14121A;
+}
+
+.dm-chat-active {
+  background: #14121A;
+  border: 1px solid #4A3C64;
+}
+
+.dm-avatar {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: #4A3C64;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  font-weight: bold;
+}
+
+.dm-chat-text {
+  flex: 1;
+}
+
+.dm-name {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.dm-line {
+  font-size: 12px;
+  color: #A29EB2;
+}
+
+.dm-time {
+  font-size: 11px;
+  color: #A29EB2;
+}
+
+
+.dm-right {
+  flex: 1;
+  background: #16141D;
+  border: 1px solid #24222C;
+  border-radius: 10px;
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+}
+
+.dm-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding-bottom: 8px;
+  margin-bottom: 10px;
+  border-bottom: 1px solid #24222C;
+}
+
+.dm-header-avatar {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: #4A3C64;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+}
+
+.dm-header-name {
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.dm-header-status {
+  font-size: 12px;
+  color: #A29EB2;
+}
+
+.dm-body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+
+.dm-msg {
+  max-width: 70%;
+  padding: 8px 10px;
+  border-radius: 10px;
+  font-size: 14px;
+}
+
+.dm-msg-them {
+  background: #14121A;
+  align-self: flex-start;
+}
+
+.dm-msg-you {
+  background: #4A3C64;
+  align-self: flex-end;
+}
+
+.dm-input {
+  display: flex;
+  gap: 8px;
+  border-top: 1px solid #24222C;
+  padding-top: 8px;
+}
+
+.dm-input input {
+  flex: 1;
+  padding: 8px 10px;
+  border-radius: 8px;
+  border: 1px solid #24222C;
+  background: #14121A;
+  color: #E8E6EE;
+}
+
+
+@media (max-width: 800px) {
+  .dm {
+    flex-direction: column;
+  }
+
+  .dm-left {
+    width: 100%;
+  }
+}

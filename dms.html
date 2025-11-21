@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weaver – DMs</title>
+    <link rel="stylesheet" href="./styleLandingPage.css">
+</head>
+
+<body>
+    <!-- NAVBAR -->
+    <header class="navbar">
+        <div class="navbar-left">
+            <a href="landingPage.html" style="display:flex; align-items:center; gap:10px; text-decoration:none;">
+                <img src="assets/WeaverLogo.png" class="logo" alt="Weaver-Logo">
+            </a>
+        </div>
+
+        <div class="search-box">
+            <input type="text" placeholder="Search Weaver...">
+        </div>
+
+        <div class="navbar-right">
+            <div class="notif-wrapper">
+                <img src="assets/notification.svg" class="icon" alt="Notification">
+
+                <div class="notif-dropdown">
+                    <div class="notif-item">
+                        <div class="notif-avatar">R</div>
+                        <div class="notif-body">
+                            <div class="notif-main"><b>Renuka</b> liked your post.</div>
+                            <div class="notif-time">2h ago</div>
+                        </div>
+                    </div>
+
+                    <div class="notif-item">
+                        <div class="notif-avatar">A</div>
+                        <div class="notif-body">
+                            <div class="notif-main">
+                                <b>Anindya</b> reweaved your post in <span class="notif-tag">#weaverUI</span>
+                            </div>
+                            <div class="notif-time">5h ago</div>
+                        </div>
+                    </div>
+
+                    <div class="notif-item">
+                        <div class="notif-avatar">A</div>
+                        <div class="notif-body">
+                            <div class="notif-main"><b>Aayush</b> commented: “Dark mode is clean fr.”</div>
+                            <div class="notif-time">1 day ago</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <a href="dms.html">
+                <img src="assets/dm.svg" class="icon" alt="DM">
+            </a>
+            <a href="profile.html">
+                <img src="assets/profile.svg" class="icon" alt="Profile">
+            </a>
+        </div>
+    </header>
+
+    <!-- DM LAYOUT -->
+    <main class="dm">
+
+        <!-- LEFT: CHAT LIST -->
+        <section class="dm-left">
+            <h2 class="dm-title">Messages</h2>
+
+            <div class="dm-chat dm-chat-active">
+                <div class="dm-avatar">R</div>
+                <div class="dm-chat-text">
+                    <div class="dm-name">Ria</div>
+                    <div class="dm-line">“Send me the Weaver link 👀”</div>
+                </div>
+                <div class="dm-time">2m</div>
+            </div>
+
+            <div class="dm-chat">
+                <div class="dm-avatar">A</div>
+                <div class="dm-chat-text">
+                    <div class="dm-name">Aman</div>
+                    <div class="dm-line">“Bro that UI is clean”</div>
+                </div>
+                <div class="dm-time">1h</div>
+            </div>
+
+            <div class="dm-chat">
+                <div class="dm-avatar">G</div>
+                <div class="dm-chat-text">
+                    <div class="dm-name">Gita</div>
+                    <div class="dm-line">“Can you help with CSS?”</div>
+                </div>
+                <div class="dm-time">Yesterday</div>
+            </div>
+        </section>
+
+        <!-- RIGHT: CHAT WINDOW -->
+        <section class="dm-right">
+            <div class="dm-header">
+                <div class="dm-header-avatar">R</div>
+                <div>
+                    <div class="dm-header-name">Ria</div>
+                    <div class="dm-header-status">Online</div>
+                </div>
+            </div>
+
+            <div class="dm-body">
+                <div class="dm-msg dm-msg-them">
+                    Bhai website mast hai re teri
+                </div>
+                <div class="dm-msg dm-msg-you">
+                    mein hu hi itna khaas
+                </div>
+                <div class="dm-msg dm-msg-them">
+                    Send me the link when you host it
+                </div>
+                <div class="dm-msg dm-msg-you">
+                    haa haa bilkul
+                </div>
+            </div>
+
+            <div class="dm-input">
+                <input type="text" placeholder="Message Ria...">
+                <button class="btn-primary">Send</button>
+            </div>
+        </section>
+
+    </main>
+
+</body>
+</html>
