@@ -50,12 +50,20 @@ body {
   color: white;
 }
 
-.navbar-right img {
+.icon {
   width: 38px;
   cursor: pointer;
+  transition: 0.2s;
 }
 
-search-box input::placeholder {
+.icon:hover {
+  transform: translateY(-2px) scale(1.05);
+  filter: brightness(1.2);
+}
+.navbar-right a{
+  text-decoration: none;
+}
+.search-box input::placeholder {
   color: #A29EB2;
 }
 
@@ -153,7 +161,7 @@ search-box input::placeholder {
 }
 
 
-/* RESPONSIVE BANA RAHA*/
+/* RESPONSIVE BANA RAHA HUUU*/
 @media(max-width: 900px) {
 
   .left,
@@ -173,5 +181,109 @@ search-box input::placeholder {
 @media(max-width: 600px) {
   .navbar-right {
     display: none;
+  }
+}
+/* PROFILE PAGE LAYOUT */
+
+.profile-container {
+  max-width: 800px;
+  margin: 20px auto;
+  padding: 0 16px;
+}
+
+/* main profile*/
+.profile-card {
+  background-color: #16141D;
+  border: 1px solid #24222C;
+  border-radius: 12px;
+  padding: 18px;
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.avatar {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background-color: #4A3C64;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28px;
+  font-weight: bold;
+  color: #E8E6EE;
+}
+
+.profile-main {
+  flex: 1;
+}
+
+.profile-name {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.profile-handle {
+  font-size: 14px;
+  color: #A29EB2;
+  margin-bottom: 6px;
+}
+
+.profile-bio {
+  font-size: 14px;
+}
+
+/* right side*/
+.profile-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  align-items: flex-end;
+}
+
+.btn-primary {
+  background-color: #9B5DE5;
+  color: #FFFFFF;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.btn-primary:hover {
+  background-color: #B786F0;
+}
+
+.profile-stats {
+  display: flex;
+  gap: 16px;
+  font-size: 13px;
+  color: #A29EB2;
+}
+
+.profile-stats span strong {
+  color: #E8E6EE;
+}
+
+/* section title */
+.profile-section-title {
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+
+@media (max-width: 600px) {
+  .profile-card {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .profile-actions {
+    align-items: flex-start;
   }
 }
