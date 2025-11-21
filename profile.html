@@ -22,11 +22,44 @@
         </div>
 
         <div class="navbar-right">
-            <img src="assets/notification.svg" class="icon" alt="Notification">
+            <div class="notif-wrapper">
+                <input type="checkbox" id="notif-toggle" class="notif-toggle">
+                <label for="notif-toggle">
+                    <img src="assets/notification.svg" class="icon" alt="Notification">
+                </label>
+
+                <div class="notif-dropdown">
+                    <div class="notif-item">
+                        <div class="notif-avatar">R</div>
+                        <div class="notif-body">
+                            <div class="notif-main"><b>Ria</b> liked your post.</div>
+                            <div class="notif-time">2h ago</div>
+                        </div>
+                    </div>
+
+                    <div class="notif-item">
+                        <div class="notif-avatar">A</div>
+                        <div class="notif-body">
+                            <div class="notif-main"><b>Aman</b> reweaved your post in <span
+                                    class="notif-tag">#weaverUI</span></div>
+                            <div class="notif-time">5h ago</div>
+                        </div>
+                    </div>
+                    <div class="notif-item">
+                        <div class="notif-avatar">G</div>
+                        <div class="notif-body">
+                            <div class="notif-main"><b>Gita</b> commented: “Dark mode is clean fr.”</div>
+                            <div class="notif-time">1 day ago</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
             <img src="assets/dm.svg" class="icon" alt="DM">
-            <!-- On profile page, profile icon is just visual, no link -->
             <img src="assets/profile.svg" class="icon" alt="Profile">
+            </a>
         </div>
+
     </header>
 
     <!-- PROFILE CONTENT -->
@@ -86,4 +119,5 @@
     </main>
 
 </body>
+
 </html>
