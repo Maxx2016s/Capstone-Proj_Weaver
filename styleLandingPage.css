@@ -32,7 +32,6 @@ body {
 
 .logo {
   height: 116px;
-  width: auto;
 }
 
 .search-box {
@@ -64,35 +63,30 @@ body {
   filter: brightness(1.2);
 }
 
-/* NOTIFICATION DROPDOWN (COMPACT) */
 
 .notif-wrapper {
   position: relative;
   display: flex;
-  align-items: center;
 }
 
-/* hidden by default */
 .notif-dropdown {
   position: absolute;
-  top: 130%;              /* a bit further below the bell */
-  right: 0;               /* stick to the right edge of the bell */
+  top: 130%;              
+  right: 0;               
   background-color: #16141D;
   border: 1px solid #24222C;
   border-radius: 12px;
   padding: 6px 8px;
-  width: 260px;           /* smaller, more menu-like */
+  width: 260px;           
   box-shadow: 0 10px 24px rgba(0, 0, 0, 0.7);
   display: none;
   z-index: 2000;
 }
 
-/* show on hover */
 .notif-wrapper:hover .notif-dropdown {
   display: block;
 }
 
-/* each notification item */
 
 .notif-item {
   display: flex;
@@ -191,7 +185,6 @@ body {
   flex: 1;
 }
 
-/* MIDDLE POSTS */
 .post {
   background-color: #16141D;
   padding: 15px;
@@ -221,8 +214,14 @@ body {
 .post-actions img:hover {
   transform: scale(1.15);
 }
-
-/* RIGHT SIDEBAR */
+.post-img {
+  width: 100%;
+  max-height: 320px;      
+  border-radius: 8px;
+  margin-bottom: 10px;
+  object-fit: cover;      
+  display: block;
+}
 .right {
   width: 22%;
   background: #16141D;
@@ -269,7 +268,6 @@ body {
     display: none;
   }
 }
-/* PROFILE PAGE LAYOUT */
 
 .profile-container {
   max-width: 800px;
@@ -277,7 +275,6 @@ body {
   padding: 0 16px;
 }
 
-/* main profile*/
 .profile-card {
   background-color: #16141D;
   border: 1px solid #24222C;
@@ -374,7 +371,7 @@ body {
   }
 }
 
-/* ===== DMS PAGe ===== */
+/* ------- DMS PAGe ------ */
 
 .dm {
   max-width: 1000px;
@@ -383,8 +380,6 @@ body {
   display: flex;
   gap: 16px;
 }
-
-/* left side list */
 
 .dm-left {
   width: 30%;
@@ -395,7 +390,7 @@ body {
 }
 
 .dm-title {
-  font-size: 18px;
+  font-size: 20px;
   margin-bottom: 10px;
 }
 
@@ -426,7 +421,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 13px;
+  font-size: 14px;
   font-weight: bold;
 }
 
