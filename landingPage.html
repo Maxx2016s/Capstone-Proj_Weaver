@@ -132,8 +132,6 @@
             </div>
 
         </div>
-
-        <!-- RIGHT SIDEBAR -->
         <div class="right">
             <h3>Trends for you</h3>
             <p>#memes</p>
@@ -145,5 +143,100 @@
     </div>
 
 </body>
+<div id="composeBtnWrap">
+  <button id="composeBtn" onclick="openCompose()">Create Post</button>
+</div>
 
+<div id="composeModal" style="display:none;">
+  <div id="composeCard">
+    <div id="composeHeader">
+      <strong>New post</strong>
+      <button id="composeClose" onclick="closeCompose()">✕</button>
+    </div>
+
+    <textarea id="composeText" placeholder="What's happening?" maxlength="280"></textarea>
+
+    <input id="composeImg" type="text" placeholder="Optional image URL (paste link)" />
+
+    <div id="composeActions">
+      <button onclick="closeCompose()" class="btn-cancel">Cancel</button>
+      <button onclick="composePost()" class="btn-post">Post</button>
+    </div>
+  </div>
+</div>
+
+</body>
+<script>
+  function openCompose() {
+    var modal = document.getElementById("composeModal");
+    var txt = document.getElementById("composeText");
+    modal.style.display = "flex";
+    txt.value = "";
+    txt.focus();
+  }
+
+  function closeCompose() {
+    var modal = document.getElementById("composeModal");
+    modal.style.display = "none";
+  }
+
+  function composePost() {
+    var textEl = document.getElementById("composeText");
+    var imgEl = document.getElementById("composeImg");
+
+    var text = textEl.value.trim();
+    var imgUrl = imgEl.value.trim();
+
+    if (text === "" && imgUrl === "") {
+      return;
+    }
+
+
+    var post = document.createElement("div");
+    post.className = "post";
+
+    var top = document.createElement("div");
+    top.className = "post-top";
+    top.innerText = "@you • just now";
+
+
+    if (text !== "") {
+      var body = document.createElement("div");
+      body.className = "post-text";
+      body.innerText = text;
+      post.appendChild(body);
+    }
+
+
+    if (imgUrl !== "") {
+      var image = document.createElement("img");
+      image.className = "post-img";
+      image.src = imgUrl;
+      image.alt = "post image";
+      post.appendChild(image);
+    }
+
+
+    var actions = document.createElement("div");
+    actions.className = "post-actions";
+
+    var icons = ["upvote.png", "downvote.png", "comment.png", "reweave.png", "save.png"];
+    for (var i = 0; i < icons.length; i++) {
+      var im = document.createElement("img");
+      im.src = "assets/" + icons[i];
+      im.alt = icons[i].split(".")[0];
+      actions.appendChild(im);
+    }
+
+
+    post.insertBefore(top, post.firstChild);
+    post.appendChild(actions);
+
+    var feed = document.getElementsByClassName("middle")[0];
+    feed.insertBefore(post, feed.firstChild);
+    textEl.value = "";
+    imgEl.value = "";
+    closeCompose();
+  }
+</script>
 </html>
