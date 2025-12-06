@@ -177,105 +177,141 @@
 
 </body>
 <script>
-    function openCompose() {
-        var modal = document.getElementById("composeModal");
-        var txt = document.getElementById("composeText");
-        modal.style.display = "flex";
-        txt.value = "";
-        txt.focus();
+function openCompose() {
+  var modal = document.getElementById("composeModal");
+  var txt = document.getElementById("composeText");
+  modal.style.display = "flex";
+  txt.value = "";
+  try { txt.focus(); } catch(e){}
+}
+
+function closeCompose() {
+  var modal = document.getElementById("composeModal");
+  modal.style.display = "none";
+}
+
+function setupVotes() {
+  var ups = document.getElementsByClassName("up");
+  var downs = document.getElementsByClassName("down");
+
+  var i;
+  for (i = 0; i < ups.length; i++) {
+    var btn = ups[i];
+    if (!btn.onclick) {
+      btn.onclick = function () {
+        var actions = this.parentNode;
+        var scores = actions.getElementsByClassName("score");
+        if (scores.length === 0) return;
+        var scoreBox = scores[0];
+        var score = parseInt(scoreBox.innerText, 10);
+        if (isNaN(score)) score = 0;
+        scoreBox.innerText = String(score + 1);
+      };
     }
+  }
 
-    function closeCompose() {
-        var modal = document.getElementById("composeModal");
-        modal.style.display = "none";
+  for (i = 0; i < downs.length; i++) {
+    var btn2 = downs[i];
+    if (!btn2.onclick) {
+      btn2.onclick = function () {
+        var actions = this.parentNode;
+        var scores = actions.getElementsByClassName("score");
+        if (scores.length === 0) return;
+        var scoreBox = scores[0];
+        var score = parseInt(scoreBox.innerText, 10);
+        if (isNaN(score)) score = 0;
+        scoreBox.innerText = String(score - 1);
+      };
     }
+  }
+}
 
-    function composePost() {
-        var textEl = document.getElementById("composeText");
-        var imgEl = document.getElementById("composeImg");
+function composePost() {
+  var textEl = document.getElementById("composeText");
+  var imgEl = document.getElementById("composeImg");
 
-        var text = textEl.value.trim();
-        var imgUrl = imgEl.value.trim();
+  var imgUrl = imgEl.value;
+var trimmed = imgUrl.replace("   ", "");
 
-        if (text === "" && imgUrl === "") {
-            return;
-        }
+  if (text === "" && imgUrl === "") return;
 
+  var post = document.createElement("div");
+  post.className = "post";
 
-        var post = document.createElement("div");
-        post.className = "post";
+  var top = document.createElement("div");
+  top.className = "post-top";
+  top.innerText = "@you • just now";
+  post.appendChild(top);
 
-        var top = document.createElement("div");
-        top.className = "post-top";
-        top.innerText = "@you • just now";
+  if (text !== "") {
+    var body = document.createElement("div");
+    body.className = "post-text";
+    body.innerText = text;
+    post.appendChild(body);
+  }
 
+  if (imgUrl !== "") {
+    var image = document.createElement("img");
+    image.className = "post-img";
+    image.src = imgUrl;
+    image.alt = "post image";
+    post.appendChild(image);
+  }
 
-        if (text !== "") {
-            var body = document.createElement("div");
-            body.className = "post-text";
-            body.innerText = text;
-            post.appendChild(body);
-        }
+  var actions = document.createElement("div");
+  actions.className = "post-actions";
 
+  var up = document.createElement("img");
+  up.src = "assets/upvote.png";
+  up.className = "up";
+  actions.appendChild(up);
 
-        if (imgUrl !== "") {
-            var image = document.createElement("img");
-            image.className = "post-img";
-            image.src = imgUrl;
-            image.alt = "post image";
-            post.appendChild(image);
+  var score = document.createElement("span");
+  score.className = "score";
+  score.innerText = "0";
+  actions.appendChild(score);
 
-        }
+  var down = document.createElement("img");
+  down.src = "assets/downvote.png";
+  down.className = "down";
+  actions.appendChild(down);
 
+  var others = ["comment.png", "reweave.png", "save.png"];
+  var j;
+  for (j = 0; j < others.length; j++) {
+    var im = document.createElement("img");
+    im.src = "assets/" + others[j];
+    actions.appendChild(im);
+  }
 
-        var actions = document.createElement("div");
-        actions.className = "post-actions";
+  post.appendChild(actions);
 
-        var icons = ["upvote.png", "downvote.png", "comment.png", "reweave.png", "save.png"];
-        for (var i = 0; i < icons.length; i++) {
-            var im = document.createElement("img");
-            im.src = "assets/" + icons[i];
-            im.alt = icons[i].split(".")[0];
-            actions.appendChild(im);
-        }
+  var feedCols = document.getElementsByClassName("middle");
+  if (feedCols.length === 0) return;
+  var feed = feedCols[0];
 
+  if (feed.firstChild) {
+    feed.insertBefore(post, feed.firstChild);
+  } else {
+    feed.appendChild(post);
+  }
 
-        post.insertBefore(top, post.firstChild);
-        post.appendChild(actions);
-        setupVotes();
+  setupVotes();
+  textEl.value = "";
+  imgEl.value = "";
+  closeCompose();
+}
 
-        var feed = document.getElementsByClassName("middle")[0];
-        feed.insertBefore(post, feed.firstChild);
-        textEl.value = "";
-        imgEl.value = "";
-        closeCompose();
+function onDomReady() {
+  setupVotes();
+}
 
-    }
-
-    function setupVotes() {
-        var ups = document.querySelectorAll(".up");
-        var downs = document.querySelectorAll(".down");
-
-        ups.forEach(function (btn) {
-            btn.addEventListener("click", function () {
-                var actions = btn.parentNode;
-                var scoreBox = actions.querySelector(".score");
-                var score = parseInt(scoreBox.innerText);
-                scoreBox.innerText = score + 1;
-            });
-        });
-
-        downs.forEach(function (btn) {
-            btn.addEventListener("click", function () {
-                var actions = btn.parentNode;
-                var scoreBox = actions.querySelector(".score");
-                var score = parseInt(scoreBox.innerText);
-                scoreBox.innerText = score - 1;
-            });
-        });
-    }
-
-    document.addEventListener("DOMContentLoaded", setupVotes);
+if (document.addEventListener) {
+  document.addEventListener("DOMContentLoaded", onDomReady);
+} else {
+  window.onload = onDomReady;
+}
 </script>
+
 
 </html>
